@@ -7,7 +7,7 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const deleteAllButton = addItems.querySelector('.delete-all');
 const uncheckAllButton = addItems.querySelector('.uncheck-all');
 
-const emojis = ['😀', '😁', '🎉', '✨', '🏆', '🎖', '😅', '😊', '😎'];
+const emojis = ['😀', '😁', '🎉', '✨', '🏆', '🎖', '😅', '😊', '😎','🙂', '🥳', '😺', '😸', '🤙', '👍', '👏', '🙌', '🎈', '🎊', '🎯', '💥', '✔'];
 
 function randomElementFromArray(arr) {
   const element = arr[Math.floor(Math.random() * arr.length)];
@@ -43,20 +43,28 @@ function addItem(e) {
 }
 
 function populateList(items = [], itemsList) {
-  itemsList.innerHTML = items.map((item, i) => {
-    return `
+  if (items.length === 0) {
+    itemsList.innerHTML = `
       <li>
-        <input type="checkbox" data-index=${i} id="item${i}" ${item.done ? 'checked' : ''}  />
-        <label for="item${i}" data-before="${randomElementFromArray(emojis)}">${item.text}</label>
-        <button
-          type="button"
-          aria-label="Remove ${item.name}"
-          value="${item.id}">
-          &times;
-        </button>
+        No completed items
       </li>
-    `;
-  }).join('');
+      `;
+  } else {
+    itemsList.innerHTML = items.map((item, i) => {
+      return `
+        <li>
+          <input type="checkbox" data-index=${i} id="item${i}" ${item.done ? 'checked' : ''}  />
+          <label for="item${i}" data-before="${randomElementFromArray(emojis)}">${item.text}</label>
+          <button
+            type="button"
+            aria-label="Remove ${item.name}"
+            value="${item.id}">
+            &times;
+          </button>
+        </li>
+      `;
+    }).join('');
+  }
 }
 
 function toggleDoneOrDelete(e) {
