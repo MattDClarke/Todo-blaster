@@ -1,0 +1,110 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+.wrapper {
+  position: absolute;
+  padding: 20px;
+  max-width: 350px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+  margin: 0.5rem 0;
+  font-weight: 200;
+}
+
+button {
+  border-radius: 5px;
+  background: #e1341e;
+  color: white;
+  border: none;
+  font-size: 18px;
+}
+
+button:hover {
+  transition: all 1s;
+  transform: scale(1.1);
+}
+
+.items {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+
+.items li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  font-weight: 100;
+  display: flex;
+}
+
+.items label {
+  flex: 1;
+  cursor: pointer;
+}
+
+.items input {
+  display: none;
+}
+
+.items input:checked + label:before {
+   content: attr(data-before);
+}
+
+.add-items {
+  margin-top: 20px;
+}
+
+.add-items button, .add-items input {
+  padding: 10px;
+  outline: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.input-container {
+  display: flex;
+}
+
+.input-container button {
+  margin-left: 0.5rem;
+  background-color: #1ECBE1;
+}
+
+.submit-btn {
+  border: 1px solid black;
+}
+
+.submit-btn:hover {
+  border-radius: 5px;
+}
+
+.all-btns {
+  margin: 10px;
+}
+
+.message {
+  padding: 0.5rem 0;
+  color: red;
+}
+
+.delete-all-container {
+  text-align: center;
+}
